@@ -19,4 +19,5 @@ from cmdb import views
 
 urlpatterns = [
     path(r'index/',views.login),
+    path(r'search/', views.searchUI)
 ]

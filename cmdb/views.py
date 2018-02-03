@@ -7,3 +7,7 @@ def login(request):
 
 
     return render(request,"login.html");
+
+
+def searchUI(request):
+    return render(request, "search.html");
