@@ -1,0 +1,63 @@
+
+#logo a {
+    float:left;
+    width:155px;
+    height:75px;
+    background-repeat:no-repeat;
+    background-image: url("images/logo.gif") ;
+    line-height: 200%;
+    text-indent: 000px;
+
+}
+#logo:hover{
+    opacity: 0.7;
+
+}
+#ibg{
+    background-image:url("images/indexbackground.jpg");
+    margin: 0;
+    padding: 0;
+    repeat: no-repeat;
+    background-attachment:fixed;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+
+}
+
+#butt{
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin:-100px 0 0 -150px;
+    width:300px;
+    height:300px;
+    z-index: 9999;
+
+
+
+
+}
+
+
+#loginb{
+	background-image:url("images/ba.png");
+    margin: 0;
+    padding: 0;
+    repeat: no-repeat;
+    background-attachment:fixed;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+	
+	
+}
+
+#logging_in_img{
+
+	width: 50px;
+	height: 25px;
+
+
+
+}

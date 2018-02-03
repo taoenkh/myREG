@@ -1,10 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+	<title>MyReg</title>
+	<link rel="stylesheet" href="logincss/css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<script src = "./js/jquery.js"></script>
+	<link rel="stylesheet" href="http://www.bootcss.com/p/buttons/css/buttons.css" type="text/css" />
+	<script
+			src="http://code.jquery.com/jquery-3.3.1.min.js"
+			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			crossorigin="anonymous"></script>
+	<script
+			src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+			integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+			crossorigin="anonymous"></script>
+	<script type="text/javascript">
+
+        $(document).ready(function(){
+            $(".button").click(function(){
+                $(".bgd").fadeOut("slow");
+            });
+
+        });
+	</script>
+
+
+
 </head>
-<body>
-Login page
+
+<body id = "loginb">
+	<div class = "bgd">
+		<img style="position:absolute; right :0px;top:0px;left:0px;bottom: 0px; width:100%;z-index: 9999;" src="css/images/indexbackground.jpg"/>
+		<div id = "butt">
+
+			  <span class="button-wrap">
+    					<a  class="button button-pill "> Get Started! </a>
+  				</span>
+
+		</div>
+	</div>
+	<div class = "container">
+		<div class=" col-sm-10" style="width: 600px;margin-left: 250px;margin-top: 50px;">
+			<div class="jumbotron">
+				<div class="form-group">
+					<span>
+					<h1 id = "logo"><a href="index.html"></a></h1>
+						<br>
+						<br>
+						<br>
+						<br>
+
+
+					</span>
+				</div>
+
+				<form class="form-horizontal" style="margin-left:50px " method="Post" action="/index/">
+					<div class="form-group input-group">
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-user"></span>
+							</span>
+						<input type="username" class="form-control" name="username" placeholder="Enter UCInetID..." required>
+					</div>
+					<div class="form-group input-group">
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-lock"></span>
+							</span>
+						<input type="password" class="form-control" name="password" placeholder="Enter Password..." required>
+					</div>
+
+					<div class="form-group">
+						<button class="btn btn-primary" style="width: 430px;">Login</button>
+					</div>
+					<br/>
+					<div class="form-group">
+						<a href="https://activate.uci.edu/">Forget Password</a>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+    <!-- include our own JS file -->
+
+
+	<script src = "logincss/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
+
+
+
 </html>

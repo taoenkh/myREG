@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MyReg</title>
+
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" href="http://www.bootcss.com/p/buttons/css/buttons.css" type="text/css" />
+    <script
+            src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script
+            src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            $("body").css("display","none");
+            $("body").fadeIn("slow");
+            $("a[target],a[href*='javascript'],a.lightbox-processed,a[href*='#']").addClass("speciallinks");
+            $("a:not(.speciallinks)").click(function(){
+                $("body").fadeOut("slow");
+                $("object,embed").css("visibility","hidden");
+            });
+        });
+    </script>
+    <script>
+        function new_page()
+        {
+            window.location.href="./login.html";
+        }
+
+    </script>
+</head>
+<body id = "ibg">
+
+
+<div id = "butt">
+
+    <button class = "button button-pill"type="button" onclick="new_page()" >Get Started!</button>
+
+</div>
+
+</body>
+</html>
