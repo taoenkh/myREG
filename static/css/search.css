@@ -1,0 +1,68 @@
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/UCIbackground.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#search-container {
+  padding: 20px;
+}
+
+#page-title{
+  width: 29%;
+  margin: auto;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 48px;
+  font-weight: bold;
+  font-family: "Comic Sans MS";
+  color: white;
+  background-color: #333333;
+}
+
+#search-paper {
+  padding: 30px;
+  width: 800px;
+  margin: auto;
+  background-color: white;
+  border-radius: 20px;
+  height: 80vh;
+  overflow-y: auto;
+  box-shadow: 5px 10px #333333;
+  font-family: "Comic Sans MS";
+}
+
+#button-container {
+  width: 100%;
+  text-align: center;
+}
+
+#submit-button {
+  width: 50%;
+  background-color:  #6666ff;
+}
+
+#filter-button {
+  width: 20%;
+  background-color: #ff4d4d;
+}
+
+.hidden{
+  display: none;
+}
+
+.form-check {
+  padding-right: 20px;
+}
+
+.checkboxes {
+  width: 50%;
+  margin: auto;
+  padding-bottom: 10px;
+}
