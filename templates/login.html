@@ -2,10 +2,11 @@
 <html>
 <head>
 	<title>MyReg</title>
-	<link rel="stylesheet" href="logincss/css/bootstrap.css" type="text/css" />
-	<link rel="stylesheet" href="css/style.css" type="text/css" />
-	<script src = "./js/jquery.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="http://www.bootcss.com/p/buttons/css/buttons.css" type="text/css" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+
 	<script
 			src="http://code.jquery.com/jquery-3.3.1.min.js"
 			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -18,7 +19,7 @@
 
         $(document).ready(function(){
             $(".button").click(function(){
-                $(".bgd").fadeOut("slow");
+                $(".bgd").fadeOut("slow")
             });
 
         });
@@ -30,12 +31,12 @@
 
 <body id = "loginb">
 	<div class = "bgd">
-		<img style="position:absolute; right :0px;top:0px;left:0px;bottom: 0px; width:100%;z-index: 9999;" src="css/images/indexbackground.jpg"/>
-		<div id = "butt">
+		<img src="css/images/newbg.jpg"/>
+			<div id = "butt">
 
-			  <span class="button-wrap">
-    					<a  class="button button-pill "> Get Started! </a>
-  				</span>
+
+				<a  class="button button-pill button-giant myb" style= "width: 300px;font-size:25px; box-shadow: 3px 7px;"> <strong>Get Started! </strong></a>
+
 
 		</div>
 	</div>
@@ -58,7 +59,7 @@
 					<div class="form-group input-group">
 						<span class="input-group-addon">
 							<span class="glyphicon glyphicon-user"></span>
-							</span>
+						</span>
 						<input type="username" class="form-control" name="username" placeholder="Enter UCInetID..." required>
 					</div>
 					<div class="form-group input-group">
@@ -87,7 +88,7 @@
     <!-- include our own JS file -->
 
 
-	<script src = "logincss/js/bootstrap.min.js" type="text/javascript"></script>
+
 </body>
 
 

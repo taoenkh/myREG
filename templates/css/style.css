@@ -1,4 +1,13 @@
+.container{
+    text-align: center;
 
+
+
+}
+.myb{
+    color:mediumblue;
+
+}
 #logo a {
     float:left;
     width:155px;
@@ -14,17 +23,27 @@
 
 }
 #ibg{
-    background-image:url("images/indexbackground.jpg");
+    background-image:url("/images/indexbackground.jpg");
     margin: 0;
     padding: 0;
     repeat: no-repeat;
     background-attachment:fixed;
-    background-size: cover;
+    background-size: contain;
     -moz-background-size: cover;
     -webkit-background-size: cover;
 
 }
+img{
 
+    position:absolute;
+    background-size: contain;
+    background-attachment:fixed;
+    background-size: contain;
+
+    right :0px;top:0px;left:0px;
+    width:100%;
+    height: 100%;
+    z-index: 9999;}
 #butt{
     position:absolute;
     top:50%;
@@ -33,7 +52,11 @@
     width:300px;
     height:300px;
     z-index: 9999;
-
+    background-size: contain;
+    background-attachment:fixed;
+    background-size: contain;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
 
 
 
@@ -41,7 +64,8 @@
 
 
 #loginb{
-	background-image:url("images/ba.png");
+
+	background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("images/indexbackground.jpg");
     margin: 0;
     padding: 0;
     repeat: no-repeat;

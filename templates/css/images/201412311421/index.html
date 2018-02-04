@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh" class="demo1 no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>jQuery带视觉差的整个页面滚动特效插件OnePageScroll.js-demo1_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		
+		<!-- Edit Below -->
+		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+	    <script type="text/javascript" src="js/jquery.onepage-scroll.js"></script>
+	    <link rel="stylesheet" type="text/css" href="css/style.css" />
+	    <link rel="stylesheet" type="text/css" href="css/onepage-scroll.css" />
+	    <link rel="stylesheet" type="text/css" href="css/elusive-webfont.css" />
+	    <script src="js/modernizr.js"></script>
+	</head>
+	<body class="demo1">
+  
+
+	
+	<div class="main">
+	  <section class="page1">
+      <div class="page_container">
+        <h1>Forward Thinking</h1>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."</p>
+        </div>
+    </section>
+	<section class = "page2">
+			<div class = "container">
+		<div class=" col-sm-10" style="width: 600px;margin-left: 250px;margin-top: 50px;">
+			<div class="jumbotron">
+				<div class="form-group">
+					<span>
+					<h1 id = "logo"><a href="index.html"></a></h1>
+						<br>
+						<br>
+						<br>
+						<br>
+
+
+					</span>
+				</div>
+
+				<form class="form-horizontal" style="margin-left:50px " method="Post" action="/index/">
+					<div class="form-group input-group">
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-user"></span>
+						</span>
+						<input type="username" class="form-control" name="username" placeholder="Enter UCInetID..." required>
+					</div>
+					<div class="form-group input-group">
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-lock"></span>
+							</span>
+						<input type="password" class="form-control" name="password" placeholder="Enter Password..." required>
+					</div>
+
+					<div class="form-group">
+						<button class="btn btn-primary" style="width: 430px;">Login</button>
+					</div>
+					<br/>
+					<div class="form-group">
+						<a href="https://activate.uci.edu/">Forget Password</a>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	</section>
+	</div>
+	<script type="text/javascript">
+	    $(".main").onepage_scroll({
+	      sectionContainer: "section"
+	    });
+  	</script>
+	
+	</body>
+</html>
