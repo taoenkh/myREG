@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MyReg</title>
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+  <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="jqueryui/style.css">
+  <style>
+  body{	background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("/static/images/bg.jpg");
+    margin: 0;
+    padding: 0;
+    repeat: no-repeat;
+    background-attachment:fixed;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;}
+{#  body{font-family: "Comic Sans MS";}#}
+  .MyCourseT { float: left; width: 65%; min-height: 12em; }
+  .MyCourse.custom-state-active { background: #eee; }
+  .MyCourse li { float: left; width: 200px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; z-index:1;border-radius:7px; }
+  .MyCourse li p { margin: 0 0 0.4em; cursor: move; }
+  .bclass { font-size:24px; color:#819FF7;font-family: "Comic Sans MS"; font-weight:bold; }
+  .MyCourse li a { float: right; }
+  .MyCourse li a.ui-icon-zoomin { float: left; }
+  .MyCourse li a.ui-icon-zoomout { float: left; }
+  .MyCourse li .CourseData{width: 100%; cursor: move; font-size:12px;}
+  .MyCourse li .CourseDataDetails{display:none; font-size:12px;}
+
+  #MySchedule {position:fixed; margin-left:61%; margin-top:50px; float: right; width: 32%; min-height: 18em; padding: 1%; background-color:#F2EFFB; border-radius:12px;}
+  #MySchedule h4 { text-align:center ;line-height: 40px; margin: 0 0 0.4em; border-radius:7px;}
+  #MySchedule .MyCourse .CourseData { display: none; }
+  #submit_btn {margin: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    cursor: pointer}
+
+  </style>
+  <script>
+  $(function() {
+    // MyCourse & MySchedule
+    var $MyCourse = $( ".MyCourseT" ),
+      $MySchedule = $( "#MySchedule" );
+
+    // make MyCourse draggable
+    $( "li", $MyCourse ).draggable({
+      cancel: "a.ui-icon", // not draggable if only click-on
+      revert: "invalid", // back to init
+      containment: "document",
+      helper: "clone",
+      cursor: "move"
+    });
+
+    // make MySchedule accept MyCourse
+    $MySchedule.droppable({
+      accept: ".MyCourseT > li",
+      activeClass: "ui-state-highlight",
+      drop: function( event, ui ) {
+{#        addCourse( $(ui.draggable).clone(true) );#}
+        addCourse( $(ui.draggable).clone(true));
+      }
+    });
+
+    // make MyCourse accept MySchedule
+    $MyCourse.droppable({
+      accept: "#MySchedule li",
+      activeClass: "custom-state-active",
+      drop: function( event, ui ) {
+        revertCourse( ui.draggable );
+      }
+    });
+
+    // Add to MySchedule
+    var recycle_icon = "<a href='' title='revert MyCourse' class='ui-icon ui-icon-refresh'>revert MyCourse</a>";
+    var course_list = [];
+    function addCourse( $item ) {
+      $item.fadeOut(function() {
+        var $list = $( "ul", $MySchedule ).length ?
+          $( "ul", $MySchedule ) :
+          $( "<ul class='MyCourse ui-helper-reset'/>" ).appendTo( $MySchedule );
+
+        $item.find( "a.ui-icon-circle-plus" ).remove();
+        $item.draggable("disable");
+        $item.append( recycle_icon ).appendTo( $list ).end();
+          $item
+            .animate({ width: "100px" })
+            .find( ".p" )
+            .animate({ height: "40px" });
+
+        });
+
+      var course_code = $item.attr('id');
+      course_list.push(course_code);
+
+
+    }
+
+    //revert MyCourse
+    var plus_icon = "<a href='' title='Add to MyCourse' class='ui-icon ui-icon-circle-plus'>Add to MyCourse</a>";
+    function revertCourse( $item ) {
+        var course = $item.attr("id");
+        var course_cp = [];
+        for(var i=0;i<course_list.length;i++){
+            if(!course_list[i] === (course)){
+                course_cp.push(course_list[i]);
+            }
+        }
+        course_list = course_cp.slice();
+      $item.fadeOut(function() {
+          $item.draggable("enable");
+        $item
+            .remove();
+
+      });
+    }
+ 
+    // show Details, in extra Window
+    var zoomout_icon = "<a href='' title='Close Details' class='ui-icon ui-icon-zoomout'>Close Details</a>";
+    function viewDetails( $item ) {
+    	 $item
+    	 	.find( "a.ui-icon-zoomin" )
+    	 		.remove()
+    	 	.end()
+    	 	.find(".CourseDataDetails")
+    	 		.css("display","block")
+    	 	.end()
+    	 	.append(zoomout_icon);	
+    }
+
+    var zoomin_icon = "<a href='' title='See Details' class='ui-icon ui-icon-zoomin'>See Details</a>";
+    function CloseDetails( $item ) {
+    	 $item
+    	 	.find( "a.ui-icon-zoomout" )
+    	 		.remove()
+    	 	.end()
+    	 	.find(".CourseDataDetails")
+    	 		.css("display","none")
+    	 	.end()
+    	 	.append(zoomin_icon);	
+    }
+
+    
+    // use icon to deal with event
+    $( "ul.MyCourse > li" ).click(function( event ) {
+      var $item = $( this ),
+        $target = $( event.target );
+ 
+      if ( $target.is( "a.ui-icon-circle-plus" ) ) {
+        addCourse( $item.clone(true));
+      } else if ( $target.is( "a.ui-icon-zoomin" ) ) {
+    	viewDetails( $item );
+      } else if ( $target.is( "a.ui-icon-refresh" ) ) {
+        revertCourse( $item );
+      } else if ( $target.is ("a.ui-icon-zoomout" ) ) {
+        CloseDetails( $item );}
+ 
+      return false;
+    });
+
+    $("#submit_btn").click(function(){
+
+        var s_list = ""
+        for(var i=0;i<course_list.length;i++)
+            s_list = s_list + course_list[i]+ ",";
+
+        console.log(s_list);
+
+        $.post("/reg/",{"course":s_list},function(data){
+            var s = "";
+            for(var i=0;i<data.length;i++)
+            {
+
+                 console.log(data[i].msg);
+                 s = s + data[i].msg + "\n";
+
+            }
+
+            $('#msg').html(s);
+        });
+
+    });
+
+
+
+  });
+
+
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+	<div class="ui-widget ui-helper-clearfix">
+
+    {% for line in data %}
+             <ul class="MyCourseT MyCourse ui-helper-reset ui-helper-clearfix">
+ 			 <p class="bclass">{{line.bclass}} {{line.name}}<p>
+
+ 			{% for sline in line.sclass %}		
+ 				<li class="ui-widget-content ui-corner-tr" id="{{sline.code}}">
+				<p style="border-radius:5px;" class="ui-widget-header">{{sline.code}}</p>
+				<div class="CourseData" style="height: 80px; width:200px;"> entered: {{sline.enr}} <br> max: {{sline.max}}<br> waitlist: {{sline.wl}} <br>registed: {{sline.reg}}<br>instructor: {{sline.instructor}}</div>
+				<div class="CourseDataDetails">type: {{sline.type}}<br> section: {{sline.sec}}<br> units: {{sline.units}}<br>time: {{sline.time}}<br> place: {{sline.place}}<br> final: {{sline.final}}<br> restr: {{sline.restr}}<br> textbooks: {{sline.textbooks}}<br> web: {{sline.web}}</div>
+				<a href="" title="See Details" class="ui-icon ui-icon-zoomin">See Details</a>
+				<a href="" title="Add Course" class="ui-icon ui-icon-circle-plus">Add Course</a>
+				</li>
+ 			{% endfor %}
+        </ul>
+    {% endfor %}
+
+	<div id="MySchedule" class="ui-widget-content">
+
+  		<h4 class="ui-widget-header">
+            MySchedule
+        </h4>
+{#        <form style="border-radius:5px; align-self:center;">#}
+            <p id="msg" style="red"></p>
+            <input id= "submit_btn" type="button"  value="Submit">
+{#        </form>#}
+    </div>
+
+</div>
+
+ 
+</body>
+</html>

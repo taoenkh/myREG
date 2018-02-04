@@ -18,7 +18,10 @@ from django.urls import path
 from cmdb import views
 
 urlpatterns = [
-    path(r'index/',views.login),
+    path(r'index/',views.index),
     path(r'search/', views.searchUI),
-    path(r'hanleform/', views.handleFormRequest)
+    path(r'hanleform/', views.handleFormRequest),
+    path(r'login/',views.login),
+    path(r'reg/',views.modify_schedule)
+
 ]

@@ -1,0 +1,87 @@
+.container{
+    text-align: center;
+
+
+
+}
+.myb{
+    color:mediumblue;
+}
+
+#logo a {
+    float:left;
+    width:155px;
+    height:75px;
+    background-repeat:no-repeat;
+    background-image: url("images/logo.gif") ;
+    line-height: 200%;
+    text-indent: 000px;
+
+}
+#logo:hover{
+    opacity: 0.7;
+
+}
+#ibg{
+    background-image:url("/images/indexbackground.jpg");
+    margin: 0;
+    padding: 0;
+    repeat: no-repeat;
+    background-attachment:fixed;
+    background-size: contain;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+
+}
+img{
+
+    position:absolute;
+    background-size: contain;
+    background-attachment:fixed;
+    background-size: contain;
+
+    right :0px;top:0px;left:0px;
+    width:100%;
+    height: 100%;
+    z-index: 9999;}
+#butt{
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin:-100px 0 0 -150px;
+    width:300px;
+    height:300px;
+    z-index: 9999;
+    background-size: contain;
+    background-attachment:fixed;
+    background-size: contain;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+
+
+
+}
+
+
+#loginb{
+
+	background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("images/indexbackground.jpg");
+    margin: 0;
+    padding: 0;
+    repeat: no-repeat;
+    background-attachment:fixed;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+
+
+}
+
+#logging_in_img{
+
+	width: 50px;
+	height: 25px;
+
+
+
+}
